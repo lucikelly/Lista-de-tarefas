@@ -27,3 +27,102 @@ main{
   background-color: #ffffff;
   padding: 3.2rem 2.4rem;
 }
+.todo-list-section{
+  margin: 0.8rem 0 1.6rem;
+  min-height: 5rem;
+
+  & > ul {
+    padding-inline-start: 0rem;
+    height: 23rem;
+    overflow: auto;
+  }
+
+  & > ul > li {
+    list-style-type: none;
+    padding: .8rem 1.6rem;
+    font-size: 1.6rem;
+    background-color: #efefef;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: .8rem;
+    border-radius: .8rem;
+    font-weight: 600;
+
+
+  }
+
+  & > ul > li:last-child{
+    margin-bottom: 0;
+  }
+
+  & > ul > li > button {
+    width: 2.4rem;
+    height: 2.4rem;
+    background-color: #e64c3c;
+    color: #ffffff;
+    border: none;
+    border-radius: .4rem;
+    cursor: pointer;
+
+    &:hover{
+      background: #da5c3e;
+    }
+  }
+}
+
+.checkbox-label-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  & > label {
+    cursor: pointer;
+
+  }
+  & > input {
+    margin-right: .8rem;
+    cursor: pointer;
+  }
+}
+#create-todo-section{
+  width: 100%;
+}
+
+#create-todo-form{
+  font-size: 1.6rem;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.input-descricao{
+  height: 3.2rem;
+  width: 100%;
+  font-size: 1.6rem;
+  border-radius: .8rem;
+  margin-right: .8rem;
+  outline: 0;
+  border: 1px solid #646464;
+  padding-left: .8rem;
+
+  &:focus{
+    border: 1px solid #5eb7f6;
+  }
+}
+
+.add-tarefa-btn{
+  box-sizing: border-box;
+  height: 3.6rem;
+  width: 3.6rem;
+  color: #ffffff;
+  background-color: #8f49ef;
+  border: none;
+  font-size: 2.4rem;
+  border-radius: .8rem;
+  cursor: pointer;
+
+  &:hover{
+    opacity: .7;
+  }
+}
