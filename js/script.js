@@ -12,6 +12,21 @@ const removeTask = (tarefaId) => {
     .removeChild(document.getElementById(tarefaId))  
 }
 
+const removerTarefas = () => {
+  const tasksToRemove = tarefas.filter(({checked}) => checked)
+   .map(({id}) => id)
+  
+
+
+tarefas = tarefas.filter(({checked})=> !checked)
+
+  tasksToRemove.forEach((taskToRemove)=> {
+    document
+    .getElementById("todo-list")
+    .removeChild(document.getElementById(taskToRemove))
+  })
+}
+
 const createTaskListItem = (tarefa, checkbox) => {
   const list = document.getElementById('todo-list')
   const todo = document.createElement('li')
@@ -30,6 +45,19 @@ const createTaskListItem = (tarefa, checkbox) => {
 
   return todo
 }
+const onCheckboxClick = (evento) => {
+  const [id] = evento.target.id.split('-')
+
+
+  tarefas = tarefas.map((tarefa) => {
+    return (parseInt(tarefa.id) === parseInt(id))
+      ? { ...tarefa, checked: evento.target.checked}
+      : tarefa
+})
+
+
+}
+
 
 const getCheckboxInput = ({id, descricao,feito} )=>{
   const checkbox = document.createElement('input')
@@ -40,6 +68,7 @@ const getCheckboxInput = ({id, descricao,feito} )=>{
   checkbox.type = 'checkbox'
   checkbox.id = checkboxid 
   checkbox.checked = feito || false
+  checkbox.addEventListener('change', onCheckboxClick)
 
   label.textContent = descricao
   label.htmlFor = checkboxid
